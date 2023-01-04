@@ -4,9 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Controls StarObjectPresenters
-/// </summary>
 public class SystemPresenter : MonoBehaviour
 {
     private List<StarObjectPresenter> objPresenters = new List<StarObjectPresenter>();
@@ -38,6 +35,9 @@ public class SystemPresenter : MonoBehaviour
         }
 
         systemTitle.text = starObjects[0].primary.objectName;
+
+        //Update List
+        ListPresenter.instance.UpdateList(starObjects);
     }
     private float GetRatio(List<float> distances){
         return viewDistance / distances.Max(x => x);
