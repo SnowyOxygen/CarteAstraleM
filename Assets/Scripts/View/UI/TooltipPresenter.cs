@@ -25,8 +25,18 @@ public class TooltipPresenter : MonoBehaviour
     [SerializeField] private Text objName;
     [SerializeField] private Image objIcon;
 
+    [SerializeField] private GameObject renameField;
+    [SerializeField] private InputField renameInput;
+
+    private StarObject starObject;
+
+    private void Start() {
+        renameField.SetActive(false);
+    }
+
     public void UpdateTooltip(StarObject starObject){
         SolarObjectPreset preset = starObject.preset;
+        this.starObject = starObject;
 
         objClass.text = $"Class : {preset.objClass}";
         objMass.text = $"Mass : {starObject.objectMass}";
@@ -39,5 +49,31 @@ public class TooltipPresenter : MonoBehaviour
         }
 
         Debug.Log($"Tooltip updated with {starObject.objectName}");
+    }
+
+    public void RenamingSubmit(){
+        string newName = renameInput.text;
+
+        if(newName != ""){
+            starObject.objectName = newName;
+            
+            UpdateTooltip(starObject);
+
+            SystemPresenter.instance.UpdatePresenters();
+
+            ToggleRenaming();
+        }
+    }
+    public void ToggleRenaming(){
+        bool toggle = !renameField.activeSelf;
+
+        renameField.SetActive(toggle);
+
+        if(toggle){
+            //TODO: add to escape list functionality
+        }
+        else{
+            
+        }
     }
 }

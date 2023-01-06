@@ -23,6 +23,8 @@ public class SystemController : MonoBehaviour
     private StarObject star;
     private List<StarObject> planets = new List<StarObject>();
 
+    [SerializeField] private int seed;
+
     public List<StarObject> GetObjects(){
         if(star == null) GenerateSystem();
 
@@ -31,14 +33,26 @@ public class SystemController : MonoBehaviour
 
         return objects;
     }
-    public void GenerateSystem(){
+    public void GenerateSystem(int seed = -1){
+        // Use seed
+        if(seed == -1){
+            this.seed = Random.Range(0, 1000000000);
+            Random.InitState(this.seed);
+            Debug.Log($"Creating system with seed {seed}");
+        }
+        else{
+            this.seed = seed;
+            Random.InitState(this.seed);
+            Debug.Log($"Creating system with seed {seed}");
+        }
+
         // Get random system
         SystemPreset systemChoice = presets[
             Probability.GetChoice(presets.Select(x => x.weight).ToList())
         ].choice;
 
         // Get star
-        star = new StarObject(Vector2.zero, systemChoice.star);
+        star = new StarObject(Vector2.zero, systemChoice.star, 0);
         Debug.Log($"Star generated with name {star.objectName}");
         
         // Get planets
@@ -61,8 +75,9 @@ public class SystemController : MonoBehaviour
             Vector2 position = star.orbit.GetPoint(distance, radiusDistance);
 
             StarObject newPlanet = new StarObject(
-                position, planetChoice, distance, radiusDistance, star
+                position, planetChoice, i + 1, distance, radiusDistance, star
             );
+
             newPlanet.objectName = planetNames[i];
             Debug.Log($"Object generated with name {newPlanet.objectName}");
 
