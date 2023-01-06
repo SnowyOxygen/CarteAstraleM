@@ -14,6 +14,7 @@ public class StarObject
     public Orbit orbit;
     public SolarObjectPreset preset;
     public string objectName;
+    public float objectMass;
     public StarObject primary;
 
     public StarObject(Vector2 position, SolarObjectPreset preset, float distance = 0f, float orbitRadius = 0f, StarObject primary = null)
