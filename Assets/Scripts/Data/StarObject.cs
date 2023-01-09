@@ -15,6 +15,7 @@ public class StarObject
     // obj name must be saved if renamed
     public bool renamedFlag = false;
     public float objectMass;
+    public float objectRadius;
     public StarObject primary;
 
     public StarObject(Vector2 position, SolarObjectPreset preset, int ID, float distance = 0f, float orbitRadius = 0f, StarObject primary = null)
@@ -29,6 +30,9 @@ public class StarObject
         else this.primary = primary;
         icon = preset.icon;
         orbit = Orbit.RandomOrbit();
+
+        objectMass = Random.Range(preset.massRange.x, preset.massRange.y);
+        objectRadius = Random.Range(preset.radiusRange.x, preset.radiusRange.y);
 
         this.ID = ID;
     }

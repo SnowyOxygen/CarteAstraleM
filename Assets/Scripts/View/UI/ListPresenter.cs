@@ -25,11 +25,14 @@ public class ListPresenter : MonoBehaviour
     public void UpdateList(List<StarObject> planets){
         Clear();
 
+        Debug.Log("Updating List");
+
         foreach(StarObject planet in planets){
             if(planet.primary != planet){
                 GameObject newElement = Instantiate(listElementPrefab, transform);
                 ListElementPresenter listElement = newElement.GetComponent<ListElementPresenter>();
                 listElement.UpdateElement(planet.objectName, planet.icon);
+                listElements.Add(listElement);
             }
             else continue;
         }
