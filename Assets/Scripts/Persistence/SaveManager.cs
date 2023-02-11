@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles save data & provides to the rest of the app
 public class SaveManager : MonoBehaviour
 {
     #region Singleton

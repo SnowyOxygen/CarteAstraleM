@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles presenting the generated system
 public class SystemPresenter : MonoBehaviour
 {
     #region Singleton

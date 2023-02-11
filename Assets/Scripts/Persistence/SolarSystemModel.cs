@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 
+// Data model for solar systems to be saved
 [Serializable]
 public class SolarSystemModel
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// Handles presenting the menu & detects the escape key
 public class MenuPresenter : MonoBehaviour
 {
     #region Singleton

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles presenting an orbit for each planet
 public class OrbitEllipse : MonoBehaviour
 {
     public LineRenderer lineRenderer;

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// Handles probability functionalites
 public class Probability
 {
+    // Gets a random choice from a list of weighted options
     public static int GetChoice(List<int> weights){
         int totalWeight = Random.Range(1, weights.Sum(x => x));
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 
+// Functionalities related to random name generation
 public static class NameGenerator
 {
     public static string[] prefixes;
@@ -49,6 +50,8 @@ public static class NameGenerator
         suffixes = jsonData.suffixes;
     }
 }
+
+// Data model for StarNames.json file
 public class NameData{
     public string[] prefixes;
     public string[] suffixes;

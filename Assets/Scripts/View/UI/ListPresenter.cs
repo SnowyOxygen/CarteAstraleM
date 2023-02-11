@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the entire solar object list
 public class ListPresenter : MonoBehaviour
 {
     #region Singleton

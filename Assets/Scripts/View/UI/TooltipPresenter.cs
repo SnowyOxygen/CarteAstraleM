@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles presenting data to the solar object tooltip
 public class TooltipPresenter : MonoBehaviour
 {
     #region Singleton

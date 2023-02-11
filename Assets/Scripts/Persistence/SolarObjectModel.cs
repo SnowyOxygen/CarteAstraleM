@@ -1,5 +1,6 @@
 using System;
 
+// Data model for solar object to be saved
 [Serializable]
 public class SolarObjectModel
 {

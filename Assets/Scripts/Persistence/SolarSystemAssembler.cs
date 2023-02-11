@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+// Converts SolarSystem objects into SolarSystemModels
 public static class SolarSystemAssembler{
     public static SolarSystemModel GetSolarSystemModel(List<StarObject> starObjects, int seed){
         SolarSystemModel systemModel = new SolarSystemModel {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles presenting objects that have been generated
 public class StarObjectPresenter : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer icon;

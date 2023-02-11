@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// data model for star object
 public class StarObject
 {
     public int ID;

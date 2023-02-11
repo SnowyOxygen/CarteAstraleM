@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Updates a specific element in the solar object list
 public class ListElementPresenter : MonoBehaviour
 {
     [SerializeField] private Text text;

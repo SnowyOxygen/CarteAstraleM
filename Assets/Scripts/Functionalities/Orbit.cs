@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Data model for orbit parameters
 public class Orbit
 {
     public float bias;
@@ -19,8 +20,11 @@ public class Orbit
     {
         return new Orbit(Random.Range(0.5f, 1f), Random.Range(0, Mathf.PI * 2));
     }
+
+    // Returns a 2D point in space around an orbit
     public Vector2 GetPoint(float distance, float orbitRadians)
     {
+        //TODO: seperate point generation from data model
         Vector2 newPoint;
 
         float j = bias * Mathf.Sin(orbitRadians) * distance;

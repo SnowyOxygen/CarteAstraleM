@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+// Settings to be created that can be used in procedural generation for solar objects
 [CreateAssetMenu(fileName = "New Solar Object", menuName = "presets/solarObj", order = 1)]
 public class SolarObjectPreset : ScriptableObject
 {
@@ -11,6 +12,7 @@ public class SolarObjectPreset : ScriptableObject
     public Vector2 massRange;
     public Vector2 radiusRange;
 }
+
 [Serializable]
 public struct ObjectChoice
 {

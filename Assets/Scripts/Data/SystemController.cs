@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// Manages & creates data for solar systems & objects
 public class SystemController : MonoBehaviour
 {
     #region Singleton
@@ -42,11 +43,13 @@ public class SystemController : MonoBehaviour
     public int seed;
 
     public List<StarObject> GetObjects(){
-        // TODO: Check if save was selected
+        // Check if save was selected
         if(save != null){
             seed = save.Seed;
         }
+        else seed = Random.Range(0, 1000000000);
 
+        // Generate new system if doesn't exist
         if(star == null) GenerateSystem(seed);
 
         List<StarObject> objects = new List<StarObject>{ star };
@@ -54,6 +57,8 @@ public class SystemController : MonoBehaviour
 
         return objects;
     }
+
+    // Generate system from preset & seed
     public void GenerateSystem(int seed){
         // Use seed
         if(seed == -1){
@@ -107,6 +112,8 @@ public class SystemController : MonoBehaviour
 
         RenameObjects();
     }
+
+    // Apply save changes to system
     public void RenameObjects(){
         if(save != null){
             List<SolarObjectModel> objects = save.SolarObjects;
