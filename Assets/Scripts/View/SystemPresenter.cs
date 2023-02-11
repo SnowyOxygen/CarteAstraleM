@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class SystemPresenter : MonoBehaviour
             instance = this;
         }
         else{
-            Debug.LogWarning("More than one instance of System Presenter!");
+            UnityEngine.Debug.LogWarning("More than one instance of System Presenter!");
             Destroy(gameObject);
         }
     }
@@ -31,8 +32,12 @@ public class SystemPresenter : MonoBehaviour
     private float ratio; // To be multiplied with object's positions
 
     private void Start() {
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
         List<StarObject> starObjects = SystemController.instance.GetObjects();
         UpdatePresenters(starObjects);
+        stopwatch.Stop();
+        UnityEngine.Debug.Log($"System generated in {stopwatch.ElapsedMilliseconds} ms");
     }
     public void UpdatePresenters(List<StarObject> starObjects = null)
     {

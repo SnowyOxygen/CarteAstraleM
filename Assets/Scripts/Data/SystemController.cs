@@ -23,17 +23,38 @@ public class SystemController : MonoBehaviour
     private StarObject star;
     private List<StarObject> planets = new List<StarObject>();
 
-    [SerializeField] private int seed;
+    private SolarSystemModel save;
+    // private SolarSystemModel save = new SolarSystemModel{
+    //     Name = "test system",
+    //     Seed = 4019802,
+    //     SolarObjects = new List<SolarObjectModel>(){
+    //         new SolarObjectModel{
+    //             Order = 1,
+    //             Name = "Venus"
+    //         },
+    //         new SolarObjectModel{
+    //             Order = 3,
+    //             Name = "Jupiter"
+    //         }
+    //     }
+    // };
+
+    public int seed;
 
     public List<StarObject> GetObjects(){
-        if(star == null) GenerateSystem();
+        // TODO: Check if save was selected
+        if(save != null){
+            seed = save.Seed;
+        }
 
-        List<StarObject> objects = planets;
-        objects.Add(star);
+        if(star == null) GenerateSystem(seed);
+
+        List<StarObject> objects = new List<StarObject>{ star };
+        objects.AddRange(planets);
 
         return objects;
     }
-    public void GenerateSystem(int seed = -1){
+    public void GenerateSystem(int seed){
         // Use seed
         if(seed == -1){
             this.seed = Random.Range(0, 1000000000);
@@ -82,6 +103,24 @@ public class SystemController : MonoBehaviour
             Debug.Log($"Object generated with name {newPlanet.objectName}");
 
             planets.Add(newPlanet);
+        }
+
+        RenameObjects();
+    }
+    public void RenameObjects(){
+        if(save != null){
+            List<SolarObjectModel> objects = save.SolarObjects;
+            
+            foreach(SolarObjectModel model in objects){
+                int index = model.Order;
+                if(index == 0){
+                    star.objectName = model.Name;
+                    continue;
+                }
+                if(index < planets.Count){
+                    planets[index].objectName = model.Name;
+                }
+            }
         }
     }
 }
