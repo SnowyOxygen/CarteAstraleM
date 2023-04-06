@@ -40,6 +40,8 @@ public class SystemPresenter : MonoBehaviour
         stopwatch.Stop();
         UnityEngine.Debug.Log($"System generated in {stopwatch.ElapsedMilliseconds} ms");
     }
+
+    // Creates a star object presenter per star object data class
     public void UpdatePresenters(List<StarObject> starObjects = null)
     {
         List<StarObject> objectList;

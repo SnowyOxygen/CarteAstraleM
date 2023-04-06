@@ -172,7 +172,7 @@ MonoBehaviour:
     choice: {fileID: 11400000, guid: 893f0075ec9779b46b642f6995f5d1b6, type: 2}
   - weight: 50
     choice: {fileID: 11400000, guid: 5b0cbdbd5b3406a47b44eb5fded9f987, type: 2}
-  seed: 0
+  seed: 28535
 --- !u!1 &80501841
 GameObject:
   m_ObjectHideFlags: 0
